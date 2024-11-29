@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game User Feedback Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            display: none;			
+            padding: 20px;
+        }
+
+        #home, #add-feedback-and-issues, #feedbacks, #issues, #contact {
+            display: none;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Styles for the Home Page */
+        .game-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .game-list li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Styles for the Contact Form */
+        .contact-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-form label,
+        .contact-form input[type="email"],
+        .contact-form select,
+        .contact-form textarea,
+        .contact-form input[type="file"],
+        .contact-form button {
+		    display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .contact-form button {
+            background-color: #00c853;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #00a54f;
+        }
+
+        /* Feedback Table Styling */
+        .feedback-page table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 60px auto;
+            background-color: white;
+            max-width: 1200px;
+        }
+
+        .feedback-page th, .feedback-page td {
+            padding: 5px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .feedback-page th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+		/* Issues Table Styling */
+        .issues-page table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 60px auto;
+            background-color: white;
+            max-width: 1200px;
+        }
+
+        .issues-page th, .issues-page td {
+            padding: 5px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .issues-page th {
+            background-color: #4CAF50;
+            color: white;
+        }
+		
+		 footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        footer p {
+            margin: 15px;
+        }
+
+        footer img {
+            width: 250px;
+            margin-top: 15px;
+        }
+
+		
+        /* Responsive design */
+        @media (max-width: 600px) {
+            nav a {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .contact-form {
+                width: 95%;
+            }
+
+            table {
+                width: 95%;
+            }
+			
+			table {
+			    width: 95%;
+			}
+			
+			footer {
+               font-size: 12px;
+               padding: 15px;
+            }
+
+            footer a {
+               display: block;
+               margin: 10px;
+            }
+
+            footer img {
+               width: 100px;
+            }
+
+        }
+    </style>
+
+    <script>
+        function switchPage(pageId) {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('add-feedback-and-issues').style.display = 'none';
+            document.getElementById('feedbacks').style.display = 'none';
+			document.getElementById('issues').style.display='none';
+			document.getElementById('contact').style.display='none';
+
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        window.onload = function () {
+            switchPage('home');  // Set home page to display by default
+        };
+    </script>
+</head>
+
+<body>
+    <nav>
+        <a href="javascript:void(0)" onclick="switchPage('home')">Home</a>
+        <a href="javascript:void(0)" onclick="switchPage('add-feedback-and-issues')">Add Feedback & Issues</a>
+        <a href="javascript:void(0)" onclick="switchPage('feedbacks')">Feedbacks</a>
+		<a href="javascript:void(0)" onclick="switchPage('issues')">Issues</a>
+		<a href="javascript:void(0)" onclick="switchPage('contact')">Contact</a>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="container">
+        <ul class="game-list">
+            <img src="Pic/Virtual Royale.png" width="60" height="60" border="0" alt="Virtual Royale logo"/><li><strong>VIRTUAL ROYALE</strong></li>
+			<br>
+			<br>
+            <img src="Pic/Dark State Force.png" width="60" height="60" border="0" alt="Dark State Force logo"/><li><strong>DARK STATE FORCE</strong></li>
+			<br>
+			<br>
+            <img src="Pic/Battle State Mobile.png" width="60" height="60" border="0" alt="Battle State Mobile logo"/><li><strong>BATTLE STATE MOBILE</strong></li>
+        </ul>
+		<br>
+		<h1>Contact Us</h1>
+		<br><br>
+    </div>
+
+    <!-- Add Feedback&Issues Page -->
+    <div id="add-feedback-and-issues" class="container">
+        <h1>Feedback and Support</h1>
+        <div class="contact-form">
+            <form action="#">
+                <label for="email"><b>Your email address *</b></label>
+                <input type="email" id="email" placeholder="Enter your email address" required>
+
+				<label for="game"><b>Game *</b></label>
+                <select id="game" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="Virtual Royale">VIRTUAL ROYALE</option>
+                    <option value="Dark State Force">DARK STATE FORCE</option>
+					<option value="Battle State Mobile">BATTLE STATE MOBILE</option>
+                </select>
+				
+                <label for="category"><b>Category *</b></label>
+                <select id="category" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="account">Account</option>
+                    <option value="report">Report</option>
+                    <option value="opinions-suggestions">Opinions and Suggestions</option>
+                    <option value="installing-running">Installing and Running Application</option>
+                    <option value="in-game">In-Game</option>
+                    <option value="ban-appeal">Ban Appeal</option>
+                    <option value="partner program">Partner Program</option>
+                    <option value="payment-refund">Payment and Refund</option>
+                    <option value="event">Event</option>
+                </select>
+                
+                <label for="platform"><b>Platform *</b></label>
+                <select id="platform" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="android">Android</option>
+                    <option value="ios">iOS</option>
+                </select>
+
+                <label for="description"><b>Describe your problem here *</b></label>
+                <textarea id="description" rows="5" placeholder="How can we help you?" required></textarea>
+
+                <label for="file"><b>Attach Files</b> <i>(Picture/Videos)</i></label>
+                <input type="file" id="file">
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Example Feedbacks Page -->
+    <div id="feedbacks" class="container feedback-page">
+        <h1>Game Users' Feedbacks</h1>
+        <table>
+            <tr>
+                <th>Email Address</th>
+                <th>Game</th>
+                <th>Feedback</th>
+            </tr>
+            <tr>
+                <td>Raja28***@gmail.com</td>
+                <td>Virtual Royale</td>
+                <td>I love the game, but I would like to see improvements in the map details.</td>
+            </tr>
+            <tr>
+                <td>Monst73****@gmail.com</td>
+                <td>Dark State Force</td>
+                <td>Please bring the partner program to the game soon.</td>
+            </tr>
+            <tr>
+                <td>James007**@gmail.com</td>
+                <td>Battle State Mobile</td>
+                <td>Bring more interesting features to the game.</td>
+            </tr>
+			<tr>
+			    <td>Thor67***@gmail.com</td>
+				<td>Dark State Force</td>
+				<td>World best battle royale game.</td>
+			</tr>
+        </table>
+		<br><br>
+    </div>
+	
+	<!-- Example Issues Page -->
+    <div id="issues" class="container issues-page">
+        <h1>Game Users' Issues</h1>
+        <table>
+            <tr>
+                <th>Email Address</th>
+                <th>Game</th>
+                <th>Feedback</th>
+            </tr>
+            <tr>
+                <td>NiruNs***@gmail.com</td>
+                <td>Dark State Force</td>
+                <td>More hackers are coming in the game. I am disgusted.</td>
+            </tr>
+            <tr>
+                <td>Rocky21****@gmail.com</td>
+                <td>Battle State Mobile</td>
+                <td>The game is crashes frequently on my device.</td>
+            </tr>
+            <tr>
+                <td>Spider302**@gmail.com</td>
+                <td>Virtual Royale</td>
+                <td>Matchmaking takes too long.</td>
+            </tr>
+			<tr>
+			    <td>Parane93***@gmail.com</td>
+				<td>Battle State Mobile</td>
+				<td>I can't hear the sound of my teammates in the game.</td>
+			</tr>
+        </table>
+		<br><br>
+    </div>
+	
+	<!-- Contact Page -->
+	<div id="contact" class="container">
+	   <div class="contact-form">
+	     <br><br><br>
+		 <h2>Developer Information</h2>
+		 <br><br>
+		 <h3><li type="square">Name:- M.Nirupan</li></h3>
+		 <h3><li type="square">Job:- Developer</li></h3>
+		 <h3><li type="square">Work Experience:- 7 Years </li></h3>
+		 <h3><li type="square">Educational Level:- ICT Degree</li></h3>
+	     <h3><li type="square">Email Address:- Bright@gmail.com</li></h3>
+		 <h3><li type="square">Mobile No:- +94 714752047</li></h3>	
+       </div>		 
+	</div>
+	
+	<!-- Footer -->
+	<footer>
+      <div>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Rules of Conduct</a>
+        <a href="#">IP Policy</a>
+      </div>
+        <p>© 2024 Cyber Royale, INC.</p>
+        <p>THESE GAMES ARE REGISTERED TRADEMARKS OF Cyber Royale, INC.</p>
+        <img src="Pic/Cyber Royale.png" alt="Cyber Royale logo"/>
+		<br><br><br><br>
+    </footer>
+	
+</body>
+</html>
